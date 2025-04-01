@@ -5,4 +5,43 @@
 			z-index: 1;
 		}
 	}
+	.alternating-ctas {
+		overflow: hidden;
+		.bg {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			height: 100%;
+			width: 100vw;
+			mix-blend-mode: multiply;
+			&.text-bg {
+				left: -50vw;
+				background-color: rgba($black, .85);
+			}
+		}
+		.cta-row {
+			.img-wrap {
+				// padding-top: 50%;
+			}
+			.text-wrap {
+				> div {
+					padding: 8.4rem 12% 5rem 0;
+				}
+				.btn-wrap {
+					margin-top: 2.25rem;
+				}
+			}
+			&.odd {
+				.bg.text-bg {
+					left: 50vw;
+				}
+				.text-wrap {
+					> div {
+						padding: 8.4rem 0 5rem 12%;
+					}
+				}
+			}
+		}
+
+	}
 }

@@ -1,6 +1,6 @@
 {
     "key": "group_6701921314d4b",
-    "title": "Footer Settings",
+    "title": "GLOBAL: Footer Settings",
     "fields": [
         {
             "key": "field_670192131d685",
@@ -110,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743358148
+    "modified": 1743451323
 }

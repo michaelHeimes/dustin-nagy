@@ -297,7 +297,7 @@ $breadcrumbs-item-separator-color: $medium-gray;
 
 $button-font-family: $header-font-family;
 $button-font-weight: 500;
-$button-padding: 0.85em 1em;
+$button-padding: 1.275em 2.5967em;
 $button-margin: 0 0 0 0;
 $button-fill: solid;
 $button-background: $black;
@@ -873,7 +873,7 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
+$topbar-padding: 0;
 $topbar-background: transparent;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;

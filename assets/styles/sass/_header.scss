@@ -1,10 +1,55 @@
+.has-scrolled {
+	header.site-header .top-bar.fixed {
+		transform: translateY(0);
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+}
+.page-template-page-home {
+	header.site-header .top-bar.load {
+		background-color: transparent;
+		border-bottom: 0px solid transparent;
+		.logo svg {
+			filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.58));
+		}
+	}
+}
 header.site-header {
-	background-color: $black;
-	transition: transform .5s ease;
-	
-	#top-bar-menu {
+	.top-bar-wrap.grid-container.fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.top-bar {
+		background-color: $black;
+		&.fixed {
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			padding: 0 calc($smallGutter * .5);
+			@include breakpoint(medium) {
+				padding: 0 calc($mediumGutter * .5);
+			}
+			transform: translateY(-100%);
+			transition: transform .5s ease;
+			.logo img {
+				max-width: 250px;
+				max-height: 55px;
+			}
+		}
+		&.load {
+			padding: 2.5625rem calc($smallGutter * .5) 1.913rem;
+			border-bottom: 11px solid $color-yellow;
+			@include breakpoint(medium) {
+				padding: 2.5625rem calc($mediumGutter * .5) 1.913rem;
+			}
+		}
 		.global-ctas {
-			
+			a.button {
+				padding: 0.85em 1.5966em;
+			}
 		}
 		.rfw-link-wrap {
 			span {
@@ -36,6 +81,8 @@ header.site-header {
 		#main-nav {
 			align-items: center;
 			font-family: $header-font-family;
+			opacity: 0;
+			padding-top: 0.65rem;
 			a {
 				font-size: rem-calc(18);
 				line-height: 1.111;

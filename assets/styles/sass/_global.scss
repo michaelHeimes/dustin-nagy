@@ -31,19 +31,75 @@ svg {
 	position: relative;
 }
 
+.yellow-bb {
+	border-bottom: 11px solid $color-yellow;
+}
+
 button,
 .button {
 	text-transform: uppercase;
+	transition: background-color 0.25s ease, color 0.25s ease;
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+	&.icon-btn {
+		svg {
+			margin-left: 5px;
+			transform: translateY(1px);
+			circle,
+			path {
+				transition: .25s ease;
+			}
+		}
+		&:hover,
+		&:focus {
+			svg {
+				circle {
+					fill: $black;
+				}
+				path {
+					fill: $color-yellow;
+				}
+			}
+		}
+	}
+	&.bg-yellow {
+		background-color: $color-yellow;
+		color: $black;
+		&.icon-btn {
+			svg {
+				circle {
+					fill: $black;
+				}
+				path {
+					fill: $color-yellow;
+				}
+			}
+		}
+		&:hover,
+		&:focus {
+			background-color: $black;
+			color: $color-yellow;
+			&:hover,
+			&:focus {
+				svg {
+					circle {
+						fill: $color-yellow;
+					}
+					path {
+						fill: $black;
+					}
+				}
+			}
+		}
+	}
 }
 
 .weight-regular {
 	button,
 	.button {
 		font-weight: 400;	
-		&:hover,
-		&:focus {
-			color: $black;
-		}
 	}
 }
 

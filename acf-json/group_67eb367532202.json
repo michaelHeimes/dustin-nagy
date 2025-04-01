@@ -1,49 +1,11 @@
 {
-    "key": "group_66fda1bc9d6cd",
-    "title": "MASTER: Hero Slider",
+    "key": "group_67eb367532202",
+    "title": "Post\/Page Slider",
     "fields": [
         {
-            "key": "field_67e9ee252a423",
-            "label": "Headline",
-            "name": "hero_headline",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "br"
-        },
-        {
-            "key": "field_67e9ee322a424",
-            "label": "Button Link",
-            "name": "hero_button_link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 1
-        },
-        {
-            "key": "field_66fda1bce6a75",
+            "key": "field_67eb367536769",
             "label": "Slider Transition Delay (in seconds)",
-            "name": "hero_slider_transition_delay",
+            "name": "banner_slider_transition_delay",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -64,9 +26,9 @@
             "append": ""
         },
         {
-            "key": "field_66fda1fce6a76",
+            "key": "field_67eb367536771",
             "label": "Slides",
-            "name": "hero_slides",
+            "name": "banner_slides",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -86,7 +48,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_66fda20ce6a77",
+                    "key": "field_67eb367539bfc",
                     "label": "Media Type",
                     "name": "media_type",
                     "aria-label": "",
@@ -108,10 +70,10 @@
                     "allow_null": 0,
                     "allow_in_bindings": 1,
                     "layout": "horizontal",
-                    "parent_repeater": "field_66fda1fce6a76"
+                    "parent_repeater": "field_67eb367536771"
                 },
                 {
-                    "key": "field_66fda223e6a78",
+                    "key": "field_67eb367539c01",
                     "label": "Image",
                     "name": "image",
                     "aria-label": "",
@@ -135,10 +97,10 @@
                     "mime_types": "",
                     "allow_in_bindings": 1,
                     "preview_size": "thumbnail",
-                    "parent_repeater": "field_66fda1fce6a76"
+                    "parent_repeater": "field_67eb367536771"
                 },
                 {
-                    "key": "field_66fda244e6a79",
+                    "key": "field_67eb367539c04",
                     "label": "Video File",
                     "name": "video_file",
                     "aria-label": "",
@@ -148,7 +110,7 @@
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_66fda20ce6a77",
+                                "field": "field_67eb367539bfc",
                                 "operator": "==",
                                 "value": "video"
                             }
@@ -165,7 +127,7 @@
                     "max_size": "",
                     "mime_types": "",
                     "allow_in_bindings": 1,
-                    "parent_repeater": "field_66fda1fce6a76"
+                    "parent_repeater": "field_67eb367536771"
                 }
             ]
         }
@@ -175,7 +137,21 @@
             {
                 "param": "post_type",
                 "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
                 "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pm-project"
             }
         ]
     ],
@@ -185,8 +161,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": false,
+    "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743430085
+    "modified": 1743468349
 }
