@@ -1,27 +1,30 @@
-footer#colophon {
-
-	.site-info {
-
+footer#colophon {	
+	color: $white;
+	a {
+		color: $color-yellow;	
 	}
-	
-	.left {
-		.bottom {
-			@include breakpoint(medium down) {
-				padding-bottom: 4.1rem;
-			}
+	.footer-main {
+		.h6 {
+			text-transform: uppercase;
+		}
+		p,
+		.p {
+			font-size: rem-calc(15);
+			line-height: 1.5;
 		}
 	}
 		
-	ul#footer-links {
+	ul.main-nav {
 		@include breakpoint(medium down) {
 			padding-bottom: 4.08rem;
 		}
-		li {
+		> li {
+			@extend .h6;
+			&.home-link {
+				display: none;
+			}
 			a {
-				font-size: rem-calc(14);
-				line-height: rem-calc(19);
-				font-weight: bold;
-				text-transform: uppercase;
+				color: #E2E2E2;
 			}
 		}
 	}
@@ -36,6 +39,13 @@ footer#colophon {
 				display: none;
 			}
 		}
+	}
+	
+	.site-info {
+		color: #BABABA;
+		font-size: rem-calc(15);
+		font-family: $header-font-family;
+		background-color: #000;
 	}
 	
 }

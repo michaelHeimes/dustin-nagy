@@ -1,11 +1,11 @@
 {
     "key": "group_67eb367532202",
-    "title": "Post\/Page Slider",
+    "title": "MASTER: Media Slider",
     "fields": [
         {
             "key": "field_67eb367536769",
             "label": "Slider Transition Delay (in seconds)",
-            "name": "banner_slider_transition_delay",
+            "name": "media_slider_transition_delay",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 7,
+            "default_value": 8,
             "min": "",
             "max": "",
             "allow_in_bindings": 1,
@@ -26,9 +26,30 @@
             "append": ""
         },
         {
+            "key": "field_67ec54f244636",
+            "label": "Autoplay",
+            "name": "media_slider_autoplay",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check to autoplay",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_67eb367536771",
             "label": "Slides",
-            "name": "banner_slides",
+            "name": "media_slides",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -57,7 +78,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "48",
                         "class": "",
                         "id": ""
                     },
@@ -80,9 +101,17 @@
                     "type": "image",
                     "instructions": "When the media type is video, this is used for the poster image.",
                     "required": 1,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_67eb367539bfc",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
                     "wrapper": {
-                        "width": "33",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -101,12 +130,12 @@
                 },
                 {
                     "key": "field_67eb367539c04",
-                    "label": "Video File",
-                    "name": "video_file",
+                    "label": "Video",
+                    "name": "video",
                     "aria-label": "",
-                    "type": "file",
+                    "type": "oembed",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
@@ -117,15 +146,12 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "33",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": "",
+                    "width": "",
+                    "height": "",
                     "allow_in_bindings": 1,
                     "parent_repeater": "field_67eb367536771"
                 }
@@ -137,21 +163,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "pm-project"
             }
         ]
     ],
@@ -161,8 +173,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743468349
+    "modified": 1743542403
 }

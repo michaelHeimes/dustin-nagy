@@ -1,6 +1,6 @@
 {
     "key": "group_65344f8c50623",
-    "title": "Block: Buttons Group",
+    "title": "BLOCK: Buttons Group",
     "fields": [
         {
             "key": "field_653452ff13635",
@@ -185,5 +185,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743468737
+    "modified": 1743537886
 }

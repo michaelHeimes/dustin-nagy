@@ -15,7 +15,6 @@
         <div class="grid-container">
             <div class="grid-x grid-padding-x align-center">
                 <div class="cell small-12 medium-11 large-10">
-                  <?php get_template_part('template-parts/part', 'default-banner-slider');?>
 		            <?php the_content();?>
                 </div>
             </div>

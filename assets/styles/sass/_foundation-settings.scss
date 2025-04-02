@@ -69,14 +69,14 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  "primary": #1779ba,
+  "primary": $color-orange,
   "secondary": #767676,
   "success": #3adb76,
   "warning": #ffae00,
   "alert": #cc4b37,
 );
 $light-gray: #e6e6e6;
-$medium-gray: #cacaca;
+$medium-gray: #DDDFE0;
 $dark-gray: #3B3B3B;
 $black: #231F20;
 $white: #fff;
@@ -154,16 +154,16 @@ $header-styles: (
     'h2': ('font-size': 20),
     'h3': ('font-size': 19),
     'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h5': ('font-size': 28),
+    'h6': ('font-size': 18),
   ),
   medium: (
     'h1': ('font-size': 46),
     'h2': ('font-size': 40),
     'h3': ('font-size': 36),
     'h4': ('font-size': 30),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+    'h5': ('font-size': 28),
+    'h6': ('font-size': 18),
   ),
 );
 $header-text-rendering: optimizeLegibility;
@@ -241,14 +241,14 @@ $accordion-background: $white;
 $accordion-plusminus: true;
 $accordion-plus-content: '\002B';
 $accordion-minus-content: '\2013';
-$accordion-title-font-size: rem-calc(12);
-$accordion-item-color: $primary-color;
-$accordion-item-background-hover: $light-gray;
-$accordion-item-padding: 1.25rem 1rem;
+$accordion-title-font-size: rem-calc(28);
+$accordion-item-color: #575757;
+$accordion-item-background-hover: $white;
+$accordion-item-padding: .907rem 5rem .907rem 1.78rem;
 $accordion-content-background: $white;
 $accordion-content-border: 1px solid $light-gray;
 $accordion-content-color: $body-font-color;
-$accordion-content-padding: 1rem;
+$accordion-content-padding: 1rem 1.78rem;
 
 // 8. Accordion Menu
 // -----------------

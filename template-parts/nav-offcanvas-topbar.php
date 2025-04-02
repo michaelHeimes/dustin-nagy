@@ -100,15 +100,25 @@
 		<div class="top-bar-right show-for-tablet">
 			<div class="grid-x align-right">
 				<div class="cell shrink">
-					<?php get_template_part('template-parts/part', 'global-cta',
-						array(
+					<?php 
+					if ( is_page_template('page-templates/page-home.php') ) {
+						get_template_part('template-parts/part', 'global-cta', array(
 							'global_phone_number' => get_field('global_phone_number', 'option'),
 							'global_request_info' => get_field('global_request_info', 'option'),
 							'global_rfq_link' => get_field('global_rfq_link', 'option'),
 							'container_classes' => 'align-right weight-regular',
-						),
-					);?>
-					<?php trailhead_top_nav();?>
+						));
+					} else {
+						get_template_part('template-parts/part', 'global-cta', array(
+							'global_phone_number' => get_field('global_phone_number', 'option'),
+							'global_request_info' => get_field('global_request_info', 'option'),
+							'global_rfq_link' => get_field('global_rfq_link', 'option'),
+							'container_classes' => 'align-right weight-regular',
+							'btn_classes' => 'bg-yellow',
+						));
+					}
+					?>
+					<?php trailhead_footer_nav();?>
 				</div>
 			</div>
 		</div>

@@ -194,32 +194,84 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 		</section>
 		<?php endif;?>
 		
-		<?php if($recent_projects_title || $recent_projects_projects) :?>
-		<section class="recent-projects">
-			<?php if($recent_projects_title):?>
-				<div class="header-wrap text-center" style="background: #231F20 url(<?=get_template_directory_uri();?>/assets/images/recent-project-bg-img.png)">
-					<h2 class="color-yellow"><?=esc_html($recent_projects_title);?></h2>
-				</div>
-			<?php endif;?>
-			<?php if( $recent_projects_projects ):?>
-				<div class="projects-slider">
-					<div class="swiper-wrapper">
-						<?php foreach( $recent_projects_projects as $project ):?>
-							<article id="post-<?php the_ID(); ?>" <?php post_class('swiper-slide'); ?>>
-								
-							</article>
-						<?php endforeach;?>
+		<?php 
+		// If no projects are selected in the ACF relationship field, fetch recent projects from the 'pm-project' post type.
+		if (empty($recent_projects_projects)) {
+			$args = array(
+				'post_type'      => 'pm-project',
+				'posts_per_page' => -1,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+			);
+			$recent_projects_query = new WP_Query($args);
+			$recent_projects_projects = $recent_projects_query->have_posts() ? $recent_projects_query->posts : [];
+		}
+		?>
+		
+		<?php if ($recent_projects_title || !empty($recent_projects_projects)) : ?>
+			<section class="recent-projects">
+				<?php if ($recent_projects_title): ?>
+					<div class="header-wrap text-center" style="background: #231F20 url(<?= get_template_directory_uri(); ?>/assets/images/recent-project-bg-img.png)">
+						<div class="grid-container">
+							<h2 class="color-yellow"><?= esc_html($recent_projects_title); ?></h2>
+						</div>
 					</div>
-					<div class="swiper-btn swiper-button-prev">
-						<svg xmlns="http://www.w3.org/2000/svg" width="46.86" height="46.86" viewBox="0 0 46.86 46.86"><g data-name="Group 6" transform="rotate(-90 23.43 23.43)"><circle cx="17.003" cy="17.003" transform="rotate(58 14.42 26.016)" fill="#231f20" r="17.003"/><path d="m31.235 28.532-7.807-7.788-7.8 7.788-2.4-2.4 10.2-10.2 10.2 10.2Z" fill="#f5ca20"/></g></svg>
+				<?php endif; ?>
+		
+				<?php if (!empty($recent_projects_projects)): ?>
+					<div class="projects-slider-wrap bg-yellow">
+						<div class="grid-container">
+							<div class="grid-x grid-padding-x align-middle">
+								<div class="cell shrink">
+									<div class="swiper-btn swiper-button-prev">
+										<svg xmlns="http://www.w3.org/2000/svg" width="46.86" height="46.86" viewBox="0 0 46.86 46.86"><g data-name="Group 6" transform="rotate(-90 23.43 23.43)"><circle cx="17.003" cy="17.003" transform="rotate(58 14.42 26.016)" fill="#231f20" r="17.003"/><path d="m31.235 28.532-7.807-7.788-7.8 7.788-2.4-2.4 10.2-10.2 10.2 10.2Z" fill="#f5ca20"/></g></svg>
+									</div>
+								</div>
+								<div class="cell auto projects-slider position-relative overflow-hidden">
+									<div class="swiper-wrapper">
+										<?php foreach ($recent_projects_projects as $project): 
+											$thumb = get_the_post_thumbnail($project->ID, 'full', array( 'class' => 'img-fill' )) ?? null;  
+											$excerpt = get_the_excerpt($project->ID);
+										?>
+											<article id="post-<?= esc_attr($project->ID); ?>" <?php post_class('swiper-slide text-center', $project->ID); ?>>
+												<a class="position-relative grid-x flex-dir-column align-middle align-center" href="<?= get_permalink($project->ID); ?>">
+													<div class="thumb-wrap has-object-fit">
+														<?= $thumb ? $thumb : ''; ?>
+													</div>
+													<h3 class="show-for-sr"><?= esc_html(get_the_title($project->ID)); ?></h3>
+													<div class="position-relative text-link text-center">
+														<p><b><?= esc_html($excerpt); ?></b></p>
+														<div class="view-link color-yellow uppercase grid-x align-middle align-center">
+															View Project
+															<img src="<?= get_template_directory_uri(); ?>/assets/images/project-link-chevron.svg" alt="chevron right">
+														</div>
+													</div>
+													<img class="accent z-1" src="<?= get_template_directory_uri(); ?>/assets/images/recent-project-card-arrow.svg" alt="chevron up">
+												</a>
+											</article>
+										<?php endforeach; ?>
+									</div>
+								</div>
+								<div class="cell shrink">
+									<div class="swiper-btn swiper-button-next">
+										<svg xmlns="http://www.w3.org/2000/svg" width="46.86" height="46.86" viewBox="0 0 46.86 46.86"><g data-name="Group 5" transform="rotate(-90 -1105.57 1801.65)"><circle cx="17.003" cy="17.003" r="17.003" transform="rotate(-58 2973.298 882.347)" fill="#231f20"/><path d="m680.455 2925.549-7.8 7.788-7.807-7.788-2.4 2.397 10.2 10.2 10.2-10.2Z" fill="#f5ca20"/></g></svg>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="view-all-wrap grid-container text-center">
+							<a class="button icon-btn grid-x inline-flex align-middle" href="/projects/" target="_self">
+								<span>View All Projects</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="27.559" viewBox="0 0 27.559 27.559"><g data-name="Group 1" transform="rotate(-90 -1115.22 1792)"><circle cx="10" cy="10" r="10" transform="rotate(-58 2962.582 876.407)" fill="#f5cd20"></circle><path d="m667.59 2918-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6Z" fill="#231f20"></path></g></svg>
+							</a>
+						</div>
 					</div>
-					<div class="swiper-btn swiper-button-next">
-						<svg xmlns="http://www.w3.org/2000/svg" width="46.86" height="46.86" viewBox="0 0 46.86 46.86"><g data-name="Group 5" transform="rotate(-90 -1105.57 1801.65)"><circle cx="17.003" cy="17.003" r="17.003" transform="rotate(-58 2973.298 882.347)" fill="#231f20"/><path d="m680.455 2925.549-7.8 7.788-7.807-7.788-2.4 2.397 10.2 10.2 10.2-10.2Z" fill="#f5ca20"/></g></svg>
-					</div>
-				</div>
-			<?php endif;?>
-		</section>
-		<?php endif;?>
+				<?php endif; ?>
+			</section>
+		<?php endif; ?>
+		
+		<?php if (isset($recent_projects_query)) wp_reset_postdata(); // Reset WP_Query if used ?>
+
 		
 		<?php endwhile; // End of the loop.
 		?>

@@ -1,0 +1,129 @@
+.gform_wrapper.gravity-theme {
+	p.gform_required_legend {
+		@extend .show-for-sr;
+	}
+	form {
+
+		.gform_fields {
+			grid-row-gap: 24px;
+			@media (min-width: 641px) {
+				grid-row-gap: 32px;
+				grid-column-gap: 56px;
+			}
+		}
+		label,
+		.gfield_label,
+		.ginput_complex legend {
+			font-weight: 400;
+			color: #575757;
+			font-size: rem-calc(18);
+			margin-bottom: 2px !important;
+		}
+		.ginput_complex {
+			> *:not(:last-child) {
+				@media (max-width: 640px) {
+					margin-bottom: 19px;
+				}
+			}
+			&.ginput_container--name .gform-field-label--type-sub {
+				margin-bottom: -9px !important;
+			}
+		}
+		[type=text], [type=password], [type=date], [type=datetime], [type=datetime-local], [type=month], [type=week], [type=email], [type=number], [type=search], [type=tel], [type=time], [type=url], [type=color], textarea, select {
+			border: 1px solid #575757;
+			background: transparent;
+			min-height: rem-calc(65);
+			color: $white;
+			&:focus {
+				background: transparent;
+				border: 1px solid #575757;
+			}
+		}
+		.gfield--type-radio {
+			.gfield_label {
+				margin-bottom: 1.65em !important;
+			}
+			.ginput_container_radio {
+	
+				.gfield_radio {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: 10px;
+					align-items: flex-start;
+					@media (min-width: 768px) {
+						grid-template-columns: 1fr 2fr;
+					}
+	
+					.gchoice {
+						display: flex;
+						align-items: center;
+						position: relative;
+						label {
+							&:before {
+								content: '';
+								display: block;
+								width: 9px;
+								height: 9px;
+								border: 1px solid #575757;
+								background-color: #575757;
+								border-radius: 100%;
+								position: absolute;
+								top: .64em;
+								left: 0;
+							}
+						}
+						input {
+							margin: 0;
+							opacity: 0;
+							&:checked + label:before {
+								background-color: $black;
+							}
+						}
+					}
+					.gfield-choice-input {
+						margin-right: 10px; /* Adjust space between radio button and label */
+					}
+				}
+			}
+		}
+		@media (min-width: 641px) {
+			.ginput_container_address {
+				.ginput_address_city,
+				.ginput_address_zip {
+					padding-left: .9804%;
+					padding-right: 29px;
+				}
+				.ginput_address_state {
+					padding-right: .9804%;
+					padding-left: 29px;
+				}
+			}
+		}
+		.gform_footer {
+			padding-bottom: 0;
+			margin-top: 42px;
+			margin-bottom: 0;
+			input {
+				margin-bottom: 0;
+				font-size: rem-calc(18);
+				font-weight: 400;
+				padding: 1em 3.014em;
+			}
+		}
+	}
+
+}
+
+@media only screen and (max-width: 641px) {
+	.gform_wrapper.gravity-theme input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]), select {
+		line-height: 2;
+		min-height: rem-calc(50) !important;
+	}
+}
+
+@media (min-width: 641px) {
+	.gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) fieldset:not([style*="display:none"]):not(.ginput_full):first-child, 
+	.gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) span:not([style*="display:none"]):not(.ginput_full):first-child {
+		padding-right: 46px !important;
+	}
+}
