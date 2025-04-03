@@ -1,9 +1,14 @@
 footer#colophon {	
 	color: $white;
+	padding-top: clamp(3.563rem, 3.012rem + 2.347vw, 5.125rem);
 	a {
 		color: $color-yellow;	
 	}
+	.footer-logo-wrap {
+		padding-bottom: clamp(3.563rem, 3.012rem + 2.347vw, 5.125rem);
+	}
 	.footer-main {
+		padding-bottom: clamp(1rem, 0.318rem + 2.911vw, 2.938rem);
 		.h6 {
 			text-transform: uppercase;
 		}
@@ -13,22 +18,78 @@ footer#colophon {
 			line-height: 1.5;
 		}
 	}
-		
-	ul.main-nav {
-		@include breakpoint(medium down) {
-			padding-bottom: 4.08rem;
+	.footer-col,
+	ul.menu > li.menu-item-has-children.h6 {
+		margin-bottom: 2.5rem;
+	}
+	.locations {
+		margin-bottom: 1.57rem;
+		.location {
+			&:not(:last-child):not(:only-child) {
+				margin-bottom: 1rem;
+			}
+		}	
+	}
+	ul#footer-nav,
+	ul#footer-stacked-nav {
+		column-gap: $smallGutter;
+		@include breakpoint(medium) {
+			justify-content: space-between;
+			column-gap: $mediumGutter;
+		}
+		@include breakpoint(large) {
+			justify-content: space-around;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
 		}
 		> li {
 			@extend .h6;
 			&.home-link {
 				display: none;
 			}
-			a {
+			> a {
 				color: #E2E2E2;
+				padding: 0;
+				display: inline-block;
+				margin-bottom: 0.35em;
+
+			}
+			ul {
+				li {
+					margin-bottom: 0.2em;
+					a {
+						padding: 0;
+						font-size: rem-calc(15);
+						line-height: 1.5;
+						color: $color-yellow;
+						text-transform: none;
+						font-family: $body-font-family;
+						font-weight: 400;
+					}
+				}
 			}
 		}
 	}
-	
+	ul#footer-nav {
+		> li.menu-item-has-children {
+			@include breakpoint(medium) {
+				flex: 0 0 calc(50% - 32px);
+			}
+			@include breakpoint(tablet) {
+				flex: 1;
+			}
+		}
+	}
+	ul#footer-stacked-nav {
+		> li {
+			margin-bottom: 0.02em;
+			&:not(:first-child) {
+				margin-top: 0.65em;
+			}
+		}
+	}
 	.copyright {
 		margin-bottom: 0;
 		@include breakpoint(medium down) {
@@ -42,10 +103,14 @@ footer#colophon {
 	}
 	
 	.site-info {
-		color: #BABABA;
-		font-size: rem-calc(15);
-		font-family: $header-font-family;
 		background-color: #000;
+		color: #BABABA;
+		padding-top: 1.48rem;
+		p,
+		.p {
+			font-size: rem-calc(15);
+			font-family: $header-font-family;
+		}
 	}
 	
 }

@@ -1,0 +1,148 @@
+.blog-primary {
+}
+
+.grid-intro {
+	padding-bottom: clamp(1.837rem, 1.411rem + 1.898vw, 2.625rem);
+	&.no-slider {
+		padding-top: 3.5rem;
+	}
+}
+
+.posts-grid.grid-padding-x {
+	padding-bottom: clamp(2.563rem, 2.188rem + 1.596vw, 3.625rem);
+	@include breakpoint(xlarge) {
+		margin-left: rem-calc(-30);
+		margin-right: rem-calc(-30);
+		> .cell {
+			padding-left: rem-calc(30);
+			padding-right: rem-calc(30);
+		}
+	}
+}
+
+.post-card {
+	margin-bottom: 4.9rem;
+	a {
+		position: relative;
+		&:hover {
+			h2 {
+				color: $color-orange;				
+			}
+		}
+	}
+	h2 {
+		transition: color .2s ease;
+		line-height: 1.076;
+		color: #505152;
+		padding-top: 1em;
+		padding-bottom: 1.3em;
+		font-size: 1.137rem;
+		font-size: clamp(1.137rem, 0.975rem + 0.722vw, 1.625rem);
+		@include breakpoint(medium) {
+			font-size: 1.625rem;
+			font-size: clamp(1.137rem, 0.975rem + 0.722vw, 1.625rem);
+		}
+		
+	}
+	.thumb-wrap {
+		display: block;
+		position: relative;
+		padding-top: 100%;
+		background-color: $color-orange;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	footer.entry-footer.weight-regular {
+		padding-top: 2rem;
+	}
+}
+
+.nav-links {
+	@extend .grid-x;
+	@extend .grid-padding-x;
+	justify-content: space-between;
+	padding-bottom: clamp(4.25rem, 3.612rem + 2.723vw, 6.063rem);
+	> div,
+	> li {
+		@extend .cell;
+		@extend .shrink;
+		a,
+		span.current {
+			display: flex;
+			padding: .1em;
+			align-items: center;
+			color: $black;
+			transition: color .25s ease;
+			font-weight: 700;
+			font-family: $header-font-family;
+			font-size: clamp(1.125rem, 1.037rem + 0.376vw, 1.375rem);
+			svg {
+				margin-top: 2px;
+				path {
+					transition: .25s ease;
+				}
+			}
+			&*:not(.current):hover {
+				color: $color-orange;
+				svg path {
+					fill: $color-orange;
+				}
+			}
+		}
+		
+	}
+	.nav-previous,
+	.prev {
+		svg {
+			margin-right: 4px;
+		}
+	}
+	.nav-next,
+	.next {
+		svg {
+			margin-left: 4px;
+		}
+	}
+	&.pagination {
+		margin-bottom: 0;
+		list-style: none;
+		justify-content: center;
+		li {
+			svg {
+				path {
+					transition: .25s ease;
+				}
+			}
+			a,
+			span.current {
+			}
+			a:hover {
+				color: $color-orange;
+				svg path {
+					fill: $color-orange;
+				}
+			}
+			span.current {
+				color: $color-orange;
+			}
+			.next {
+				flex-direction: row-reverse;	
+			}
+		}
+	}
+}
+
+.single-post {
+	.nav-links {
+		padding-bottom: rem-calc(98);
+		@include breakpoint(medium) {
+			padding-bottom: rem-calc(148);
+		}
+	}
+}

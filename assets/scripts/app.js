@@ -165,7 +165,7 @@
         
         const mainNav = document.querySelector('.site-header .main-nav');
         
-        const items = document.querySelectorAll('#main-nav .break-after-first-word span');
+        const items = document.querySelectorAll('.main-nav .break-after-first-word > a > span');
         if(items.length < 1) return;
         items.forEach((item) => {
             let words = item.innerHTML.trim().split(' ');
@@ -183,7 +183,6 @@
         if( !projectsSlider ) return;
         
         const prevBtn = projectsSlider.parentElement.querySelector('.swiper-button-prev');
-        console.log(prevBtn);
         const nextBtn = projectsSlider.parentElement.querySelector('.swiper-button-next');
         
         const swiper = new Swiper(projectsSlider, {
@@ -201,7 +200,7 @@
                     spaceBetween: 30,
                     slidesPerView: 2,
                 },
-                992: {
+                1024: {
                     spaceBetween: 40,
                     slidesPerView: 3,
                 },
@@ -213,8 +212,12 @@
     _app.media_slider = function() {
         const mediaSliders = document.querySelectorAll('.media-slider');
         if( mediaSliders.length < 1 ) return;
-                
+                        
         mediaSliders.forEach(function (mediaSlider) {
+            
+        const sliderSlides = mediaSlider.querySelectorAll('.swiper-slide');
+        if( sliderSlides.length < 2 ) return;
+            
         const autoplay = mediaSlider.getAttribute('data-autoplay');
         const delay = mediaSlider.getAttribute('data-delay');
         const prevBtn = mediaSlider.querySelector('.swiper-button-prev');
@@ -249,6 +252,9 @@
         const bannerSlider = document.querySelector('.page-banner .bg-slider');
         if(bannerSlider) {
             const slides = bannerSlider.querySelectorAll('.swiper-slide');
+            
+            if( slides.length < 2 ) return;
+            
             const delay = bannerSlider.getAttribute('data-delay');
             
             function pauseAndRestartAllVideos() {
@@ -327,9 +333,9 @@
                 // Calculate the min-height by subtracting headerHeight from windowHeight
                 let minHeight = windowHeight - headerHeight;
         
-                // Ensure the minHeight does not exceed 790px
-                if (minHeight > 662) {
-                    minHeight = 662;
+                // Ensure the minHeight does not exceed 856px
+                if (minHeight > 856) {
+                    minHeight = 856;
                 }
         
                 // Set the min-height of .style-hero-slider
@@ -342,13 +348,50 @@
         }
         
     }
+    
+    _app.btn_group_width = function() {
+        const updateButtonWidths = () => {
+            const btnGroups = document.querySelectorAll('.btns-group');
+            
+            if( btnGroups.length < 1) return;
+            
+            btnGroups.forEach(group => {
+                const buttons = group.querySelectorAll('.button');
+        
+                // Reset widths to ensure accurate measurement
+                buttons.forEach(button => button.style.width = '');
+        
+                if (window.innerWidth < 460) {
+                    // Find the widest button
+                    let maxWidth = 0;
+                    buttons.forEach(button => {
+                        const buttonWidth = button.offsetWidth;
+                        if (buttonWidth > maxWidth) {
+                            maxWidth = buttonWidth;
+                        }
+                    });
+        
+                    // Apply the widest width to all buttons
+                    buttons.forEach(button => {
+                        button.style.width = `${maxWidth}px`;
+                    });
+                }
+            });
+        };
+        
+        // Run on page load
+        updateButtonWidths();
+        
+        // Update on window resize
+        window.addEventListener('resize', updateButtonWidths);
+    }
             
     _app.init = function() {
         
         // Standard Functions
         _app.foundation_init();
         _app.emptyParentLinks();
-        _app.fixed_nav_hack();
+        //_app.fixed_nav_hack();
         // _app.display_on_load();
         
         // Custom Functions
@@ -358,6 +401,7 @@
         _app.banner_slider();
         _app.media_slider();
         _app.recent_projects_slider();
+        _app.btn_group_width();
     }
     
     

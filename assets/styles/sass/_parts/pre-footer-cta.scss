@@ -1,7 +1,7 @@
 .pre-footer-cta {
 	.inner.grid-x {
-		padding-top: 5.75rem;
-		padding-bottom: rem-calc(92);
-		row-gap: 55px;
+		padding-top: clamp(4.025rem, 3.418rem + 2.592vw, 5.75rem);
+		padding-bottom: clamp(4.025rem, 3.418rem + 2.592vw, 5.75rem);
+		row-gap: clamp(2.406rem, 2.043rem + 1.549vw, 3.438rem);
 	}
 }

@@ -11,11 +11,13 @@ h4,
 
 h1,
 .h1 {
+	font-size: clamp(2.25rem, 2.03rem + 0.939vw, 2.875rem);
 	line-height: 1.1739;
 }
 
 h2,
 .h2 {
+	font-size: clamp(1.875rem, 1.655rem + 0.939vw, 2.5rem);
 	line-height: 1.46666;
 }
 

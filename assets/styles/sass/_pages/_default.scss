@@ -77,8 +77,6 @@ body.single-post {
 	.entry-content {
 		overflow: hidden;
 		&:not(.accordion-content) {
-			padding-top: clamp(2rem, 1.33rem + 1.786vw, 2.938rem);
-			padding-bottom: 12.206rem;
 			padding-bottom: clamp(12.206rem, 10.498rem + 8.541vw, 17.438rem);
 		}
 		.inner > *:first-child {

@@ -4,11 +4,12 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
+ $global_phone_number = get_field('global_phone_number', 'option') ?? null;
 ?>
 
 <div class="top-bar-wrap grid-container fluid">
 
-	<div class="top-bar fixed">
+	<div class="top-bar fixed show-for-tablet">
 	
 		<div class="top-bar-left float-left">
 			
@@ -118,7 +119,7 @@
 						));
 					}
 					?>
-					<?php trailhead_footer_nav();?>
+					<?php trailhead_top_nav();?>
 				</div>
 			</div>
 		</div>
@@ -129,5 +130,20 @@
 			</ul>
 		</div>
 	</div>
-	
+	<div class="grid-container hide-for-tablet">
+		<div class="grid-x grid-padding-x">
+			<div class="cell small-12 text-right">
+				<?php if( $global_phone_number ):
+					$link = $global_phone_number;
+					$link_url = $link['url'];
+					$link_title = $link['title'];
+					$link_target = $link['target'] ? $link['target'] : '_self';	
+				?>
+					<div class="cell shrink">
+						<a class="header-phone color-yellow p" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					</div>
+				<?php endif;?>
+			</div>
+		</div>
+	</div>
 </div>

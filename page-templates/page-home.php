@@ -42,7 +42,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 			the_post();?>
 
 		<?php if( $hero_headline || $hero_button_link || $slides ):?>
-		<header class="entry-header page-banner hero-banner has-bg grid-x align-middle style-hero-slider position-relative bg-blue text-center yellow-bb">
+		<div class="entry-header page-banner hero-banner has-bg grid-x align-middle style-hero-slider position-relative bg-blue text-center yellow-bb">
 			<div class="bg">
 				<?php if( !empty( $slides ) ):?>
 					<div class="bg-slider" data-delay="<?= esc_attr( $slider_transition_delay );?>">
@@ -88,7 +88,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 								$link_title = $link['title'];
 								$link_target = $link['target'] ? $link['target'] : '_self';		
 							?>
-								<a class="button icon-btn grid-x inline-flex align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+								<a class="button icon-btn grid-x inline-flex align-middle align-center  show-for-medium" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 									<span><?php echo esc_html( $link_title ); ?></span>
 									<svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="27.559" viewBox="0 0 27.559 27.559"><g data-name="Group 1" transform="rotate(-90 -1115.22 1792)"><circle cx="10" cy="10" r="10" transform="rotate(-58 2962.582 876.407)" fill="#f5cd20"/><path d="m667.59 2918-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6Z" fill="#231f20"/></g></svg>
 								</a>
@@ -97,7 +97,13 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 					</div>
 				</div>
 			</div>
-		</header>
+			<?php if( $hero_button_link ):?>
+			<a class="button icon-btn grid-x inline-flex align-middle align-center hide-for-medium" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+				<span><?php echo esc_html( $link_title ); ?></span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="27.559" viewBox="0 0 27.559 27.559"><g data-name="Group 1" transform="rotate(-90 -1115.22 1792)"><circle cx="10" cy="10" r="10" transform="rotate(-58 2962.582 876.407)" fill="#f5cd20"/><path d="m667.59 2918-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6Z" fill="#231f20"/></g></svg>
+			</a>
+			<?php endif;?>
+		</div>
 		<?php endif;?>
 		
 		<?php if( $intro_heading || $intro_image || $intro_copy ):?>
@@ -105,19 +111,19 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-center">
 					<?php if( $intro_heading || $intro_image ):?>
-						<div class="cell small-12 medium-6 tablet-5">
+						<div class="left cell small-12 tablet-5 xlarge-shrink">
 							<?php if( $intro_heading ):?>
 								<h1><?=esc_html($intro_heading);?></h1>
 							<?php endif;?>
 							<?php if( $intro_image ):?>
-								<div class="img-wrap">
+								<div class="img-wrap show-for-tablet">
 									<?=wp_get_attachment_image( $intro_image['id'], 'full', false, [ 'class' => '' ] );?>
 								</div>
 							<?php endif;?>
 						</div>
 					<?php endif;?>
 					<?php if( $intro_copy ):?>
-						<div class="cell small-12 medium-6 tablet-5">
+						<div class="right cell small-12 tablet-7 xlarge-auto">
 							<?=wp_kses_post($intro_copy);?>
 							<?php get_template_part('template-parts/part', 'global-cta',
 								array(
@@ -129,20 +135,25 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 							);?>
 						</div>
 					<?php endif;?>
+					<?php if( $intro_image ):?>
+						<div class="img-wrap hide-for-tablet">
+							<?=wp_get_attachment_image( $intro_image['id'], 'full', false, [ 'class' => '' ] );?>
+						</div>
+					<?php endif;?>
 				</div>
 			</div>
 		</section>
 		<?php endif;?>
 		
 		<?php if( $alternating_cta_repeater ):?>
-		<section class="alternating-ctas yellow-bb">
+		<section class="alternating-ctas">
 			<?php $i = 1; foreach($alternating_cta_repeater as $row):
 				$background_image = $row['background_image'] ?? null;	
 				$heading = $row['heading'] ?? null;	
 				$text = $row['text'] ?? null;	
 				$button_link = $row['button_link'] ?? null;	
 			?>
-				<div class="cta-row bg-black has-object-fit<?php if($i % 2 == 0) { echo ' odd';};?>">
+				<div class="cta-row bg-black yellow-bb has-object-fit<?php if($i % 2 == 0) { echo ' odd';};?>">
 					<?php if( $background_image ):?>
 						<div class="img-wrap">
 							<?=wp_get_attachment_image( $background_image['id'], 'full', false, [ 'class' => 'img-fill' ] );?>
@@ -159,7 +170,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 							}
 							;?>
 							">
-								<div class="cell small-12 medium-6 text-wrap">
+								<div class="cell small-12 tablet-6 text-wrap">
 									<div class="position-relative">
 										<?php if( $heading ):?>
 											<h2 class="color-yellow">
@@ -220,14 +231,14 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 		
 				<?php if (!empty($recent_projects_projects)): ?>
 					<div class="projects-slider-wrap bg-yellow">
-						<div class="grid-container">
+						<div class="grid-container position-relative">
 							<div class="grid-x grid-padding-x align-middle">
 								<div class="cell shrink">
 									<div class="swiper-btn swiper-button-prev">
 										<svg xmlns="http://www.w3.org/2000/svg" width="46.86" height="46.86" viewBox="0 0 46.86 46.86"><g data-name="Group 6" transform="rotate(-90 23.43 23.43)"><circle cx="17.003" cy="17.003" transform="rotate(58 14.42 26.016)" fill="#231f20" r="17.003"/><path d="m31.235 28.532-7.807-7.788-7.8 7.788-2.4-2.4 10.2-10.2 10.2 10.2Z" fill="#f5ca20"/></g></svg>
 									</div>
 								</div>
-								<div class="cell auto projects-slider position-relative overflow-hidden">
+								<div class="cell small-12 medium-auto projects-slider position-relative overflow-hidden">
 									<div class="swiper-wrapper">
 										<?php foreach ($recent_projects_projects as $project): 
 											$thumb = get_the_post_thumbnail($project->ID, 'full', array( 'class' => 'img-fill' )) ?? null;  

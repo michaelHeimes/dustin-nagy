@@ -5,7 +5,7 @@ $global_rfq_link = $args['global_rfq_link'] ?? null;
 $container_classes = $args['container_classes'] ?? null;
 $btn_classes = $args['btn_classes'] ?? null;
 ?>
-<div class="global-ctas grid-x grid-padding-x align-middle <?=esc_attr( $container_classes );?>">
+<div class="global-ctas btns-group grid-x grid-padding-x align-middle <?=esc_attr( $container_classes );?>">
 	<?php if( $global_phone_number ):
 		$link = $global_phone_number;
 		$link_url = $link['url'];
