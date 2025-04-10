@@ -130,7 +130,7 @@ header.site-header {
 				
 				> a {
 					color: $white;
-					padding: 0.78rem 1.7rem 1.034rem;
+					padding: 0.78rem 1.45rem 1.034rem;
 					position: relative;
 					text-shadow: 1px 2px 0px rgba(0,0,0,0.75);
 					span {
@@ -147,11 +147,11 @@ header.site-header {
 				}
 				
 			&.is-active {
-				a {
+				> a {
 					color: $black;
 					background-color: $color-yellow;
 					text-shadow: 0px 0px 0px rgba(0,0,0,0.75);
-					span {
+					> span {
 						display: inline-block;
 						transform: translateY(2px);
 					}
@@ -166,6 +166,7 @@ header.site-header {
 					li {
 						a {
 							color: $black;
+							padding: 0.9rem 1.45rem;
 							transition: color .25s ease, background-color .25s ease;
 							&:hover,
 							&:focus {

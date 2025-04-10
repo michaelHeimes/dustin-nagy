@@ -8297,7 +8297,7 @@ header.site-header .top-bar .main-nav > li {
 }
 header.site-header .top-bar .main-nav > li > a {
   color: #fff;
-  padding: 0.78rem 1.7rem 1.034rem;
+  padding: 0.78rem 1.45rem 1.034rem;
   position: relative;
   text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.75);
 }
@@ -8309,12 +8309,12 @@ header.site-header .top-bar .main-nav > li > a span:before {
   height: 11px;
   background-color: transparent;
 }
-header.site-header .top-bar .main-nav > li.is-active a {
+header.site-header .top-bar .main-nav > li.is-active > a {
   color: #231F20;
   background-color: #F5CC20;
   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.75);
 }
-header.site-header .top-bar .main-nav > li.is-active a span {
+header.site-header .top-bar .main-nav > li.is-active > a > span {
   display: inline-block;
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
@@ -8326,6 +8326,7 @@ header.site-header .top-bar .main-nav > li.menu-item-has-children ul.submenu {
 }
 header.site-header .top-bar .main-nav > li.menu-item-has-children ul.submenu li a {
   color: #231F20;
+  padding: 0.9rem 1.45rem;
   -webkit-transition: color 0.25s ease, background-color 0.25s ease;
   transition: color 0.25s ease, background-color 0.25s ease;
 }
