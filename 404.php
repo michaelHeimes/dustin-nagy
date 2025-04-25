@@ -9,18 +9,18 @@
 
 get_header();
 ?>
-	<div class="content">
+	<div class="content bg-white-gradient">
 		<div class="grid-container">
 			<div class="inner-content grid-x grid-padding-x">
 				<main id="primary" class="site-main">
 			
-					<article class="content-not-found">
+					<article class="content-not-found entry-content">
 					
 						<header class="article-header">
 							<h1>404</h1>
 						</header> <!-- end article header -->
 					
-						<section class="entry-content">
+						<section>
 							<p>The page you're looking for doesn't exist. Please use the navigation at the top of the page or <a href="<?php echo home_url(); ?>">return to the home page.</a></p>
 						</section> <!-- end article section -->
 					
