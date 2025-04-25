@@ -99,12 +99,15 @@
 	.recent-projects {
 		.header-wrap {
 			padding: clamp(3.967rem, 3.368rem + 2.554vw, 5.667rem) 0 clamp(6.125rem, 5.201rem + 3.944vw, 8.75rem);
+			background-repeat: no-repeat !important;
+			background-size: cover !important;
 			h2 {
 				margin: 0;
 			}
 		}
 		.projects-slider-wrap {
 			> .grid-container {
+				max-width: 1330px;
 				@media screen and (max-width: 767px) {
 					max-width: 550px;
 				}
@@ -132,7 +135,7 @@
 				height: auto;
 				filter: drop-shadow(0px 2px 4px rgba(0,0,0,.9));
 				a {
-					padding: 8.189rem 2rem;
+					padding: 8.77rem 2rem;
 					row-gap: 5px;
 					&:after {
 						content: '';

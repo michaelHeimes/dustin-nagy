@@ -24,6 +24,8 @@
 }
 header.site-header {
 	background-color: $black;
+	position: relative;
+	z-index: 99999;
 	@include breakpoint(medium down) {
 		position: fixed;
 		z-index: 99999;
@@ -49,7 +51,7 @@ header.site-header {
 		.logo {
 			max-width: 200px;
 			@include breakpoint(medium) {
-				max-width: 300px;
+				max-width: 360px;
 			}
 		}
 		&.fixed {
@@ -83,10 +85,14 @@ header.site-header {
 			@include breakpoint(xlarge) {
 				align-items: center;
 			}
+			.global-ctas {
+				padding-bottom: 1.1rem;
+			}
 		}
 		.global-ctas {
 			a.button {
 				padding: 0.85em 1.5966em;
+				font-size: rem-calc(18);
 			}
 		}
 		.rfw-link-wrap {

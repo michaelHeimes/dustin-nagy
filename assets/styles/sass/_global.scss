@@ -42,6 +42,10 @@ button,
 	&:hover,
 	&:focus {
 		color: $black;
+		&.hover-light-gray {
+			background-color: #efefef !important;
+			color: $black !important;
+		}
 	}
 	&.icon-btn {
 		svg {
@@ -161,12 +165,14 @@ POSTS & CONTENT STYLES
 		margin-left: 1.5em; 
 		display: inline; 
 		float: right; 
+		text-align: right;
 	}
 	.aligncenter, img.aligncenter { 
 		margin-right: auto; 
 		margin-left: auto; 
 		display: block; 
 		clear: both; 
+		text-align: center;
 	}
 			
 	video, object {

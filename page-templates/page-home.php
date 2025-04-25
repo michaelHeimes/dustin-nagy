@@ -111,7 +111,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-center">
 					<?php if( $intro_heading || $intro_image ):?>
-						<div class="left cell small-12 tablet-5 xlarge-shrink">
+						<div class="left cell small-12 tablet-5">
 							<?php if( $intro_heading ):?>
 								<h1><?=esc_html($intro_heading);?></h1>
 							<?php endif;?>
@@ -123,7 +123,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 						</div>
 					<?php endif;?>
 					<?php if( $intro_copy ):?>
-						<div class="right cell small-12 tablet-7 xlarge-auto">
+						<div class="right cell small-12 tablet-7 xlarge-6">
 							<?=wp_kses_post($intro_copy);?>
 							<?php get_template_part('template-parts/part', 'global-cta',
 								array(
@@ -189,7 +189,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 											$link_target = $link['target'] ? $link['target'] : '_self';		
 										?>
 										<div class="btn-wrap">
-											<a class="button bg-yellow icon-btn grid-x inline-flex align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+											<a class="button bg-yellow hover-light-gray icon-btn grid-x inline-flex align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 												<span><?php echo esc_html( $link_title ); ?></span>
 												<svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="27.559" viewBox="0 0 27.559 27.559"><g data-name="Group 1" transform="rotate(-90 -1115.22 1792)"><circle cx="10" cy="10" r="10" transform="rotate(-58 2962.582 876.407)" fill="#f5cd20"/><path d="m667.59 2918-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6Z" fill="#231f20"/></g></svg>
 											</a>

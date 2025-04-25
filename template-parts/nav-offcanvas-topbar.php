@@ -51,7 +51,7 @@
 							'global_request_info' => get_field('global_request_info', 'option'),
 							'global_rfq_link' => get_field('global_rfq_link', 'option'),
 							'container_classes' => 'align-right weight-regular',
-							'btn_classes' => 'bg-yellow',
+							'btn_classes' => 'bg-yellow hover-light-gray',
 						),
 					);?>
 				</div>
