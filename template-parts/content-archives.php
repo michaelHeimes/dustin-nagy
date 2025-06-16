@@ -37,7 +37,7 @@ if( is_home() ) {
 		<div class="blog-primary">
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-center">
-					<div class="cell small-12 medium-11 large-10">
+					<div class="cell small-12 tablet-11 large-10">
 						<?php
 						if( $media_slides ){
 							get_template_part('template-parts/part', 'media-slider',

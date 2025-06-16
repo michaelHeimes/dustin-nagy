@@ -123,16 +123,26 @@
 				</div>
 			</div>
 		</div>
-		<div class="menu-toggle-wrap top-bar-right float-right hide-for-tablet">
+		<div class="menu-toggle-wrap top-bar-right float-right grid-x hide-for-tablet">
+			<?php if( $global_phone_number ):
+				$link = $global_phone_number;
+				$link_url = $link['url'];
+				$link_title = $link['title'];
+				$link_target = $link['target'] ? $link['target'] : '_self';	
+			?>
+				<div class="cell shrink top-bar-mobile-phone hide-for-tablet">
+					<a class="header-phone color-yellow p" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+				</div>
+			<?php endif;?>
 			<ul class="menu">
 				<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-				<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
+				<li><a class="menu-toggle top-row-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
 			</ul>
 		</div>
 	</div>
-	<div class="grid-container hide-for-tablet">
-		<div class="grid-x grid-padding-x">
-			<div class="cell small-12 text-right">
+	<div class="top-bar bottom-bar">
+		<div class="cell small-12 grid-container hide-for-tablet">
+			<div class="grid-x grid-padding-x align-justify">
 				<?php if( $global_phone_number ):
 					$link = $global_phone_number;
 					$link_url = $link['url'];
@@ -143,6 +153,12 @@
 						<a class="header-phone color-yellow p" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 					</div>
 				<?php endif;?>
+				<div class="menu-toggle-wrap bottom-row-toggle">
+					<ul class="menu">
+						<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
+						<li><a class="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

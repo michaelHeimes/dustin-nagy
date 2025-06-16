@@ -173,21 +173,25 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
 /**
  * Enqueue Google Fonts.
  */
-wp_enqueue_style( 'pmi-', 'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:ital@0;1&display=swap', array(), _S_VERSION );
-
-function google_font_loader_tag_filter( $html, $handle ) {
-	if ( $handle === 'pmi-' ) {
-		$rel_preconnect = "rel='stylesheet preconnect'";
-
-		return str_replace(
-			"rel='stylesheet'",
-			$rel_preconnect,
-			$html
-		);
-	}
-	return $html;
-}
-add_filter( 'style_loader_tag', 'google_font_loader_tag_filter', 10, 2 );
+wp_enqueue_style(
+	 'pmi-google-fonts',
+	 'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:ital@0;1&display=swap',
+	 array(),
+	 null
+ );
+ 
+ function google_font_loader_tag_filter( $html, $handle ) {
+	 if ( $handle === 'pmi-google-fonts' ) {
+		 $rel_preconnect = "rel='stylesheet preconnect'";
+		 return str_replace(
+			 "rel='stylesheet'",
+			 $rel_preconnect,
+			 $html
+		 );
+	 }
+	 return $html;
+ }
+ add_filter( 'style_loader_tag', 'google_font_loader_tag_filter', 10, 2 );
 
 
 
