@@ -113,7 +113,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 					<?php if( $intro_heading || $intro_image ):?>
 						<div class="left cell small-12 tablet-5">
 							<?php if( $intro_heading ):?>
-								<h1><?=esc_html($intro_heading);?></h1>
+								<h1><?=wp_kses_post($intro_heading);?></h1>
 							<?php endif;?>
 							<?php if( $intro_image ):?>
 								<div class="img-wrap show-for-tablet">

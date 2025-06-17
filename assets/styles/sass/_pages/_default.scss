@@ -268,24 +268,18 @@ body.single-post .entry-content {
 }
 
 .wp-block-gallery.has-nested-images {
-	gap: 24px !important;
+	--wp--style--gallery-gap-default: 24px !important;
 
 	@include breakpoint(tablet) {
-		gap: 38px !important;
+		--wp--style--gallery-gap-default: 38px !important;
 	}
 	@include breakpoint(xlarge) {
-		gap: 57px !important;
+		--wp--style--gallery-gap-default: 57px !important;
 	}
 	> *,
 	figure.wp-block-image:not(#individual-image) {
 		aspect-ratio: 1 / 1;
-
-		@media (max-width: 600px) {
-			width: calc(33.333% - 24px) !important;
-		}
-		@media (max-width: 460px) {
-			width: calc(50% - 24px) !important;
-		}
+		flex-grow: 0;
 	}
 }
 :where(.wp-block-columns.is-layout-flex) {
