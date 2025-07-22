@@ -25,10 +25,10 @@
 header.site-header {
 	background-color: $black;
 	position: relative;
-	z-index: 99999;
+	z-index: 9999;
 	@include breakpoint(medium down) {
 		position: fixed;
-		z-index: 99999;
+		z-index: 9999;
 		top: 0;
 		left: 0;
 		width: 100%;

@@ -21,7 +21,7 @@ if( $pre_footer_background_image || $pre_footer_heading  ):
 					'global_request_info' => get_field('global_request_info', 'option'),
 					'global_rfq_link' => '',
 					'container_classes' => 'align-center weight-medium',
-					'btn_classes' => 'bg-yellow',
+					'btn_classes' => 'bg-yellow hover-light-gray',
 				),
 			);?>
 		</div>

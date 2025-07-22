@@ -8188,12 +8188,12 @@ ol {
 header.site-header {
   background-color: #231F20;
   position: relative;
-  z-index: 99999;
+  z-index: 9999;
 }
 @media print, screen and (max-width: 56.24875em) {
   header.site-header {
     position: fixed;
-    z-index: 99999;
+    z-index: 9999;
     top: 0;
     left: 0;
     width: 100%;
@@ -9365,6 +9365,15 @@ footer#colophon .site-info .p {
 .page-template-page-home .recent-projects .view-all-wrap {
   padding-top: 0.57rem;
   padding-bottom: 3.75rem;
+}
+.page-template-page-home .recent-projects .view-all-wrap a.button {
+  border: 1px solid #231F20;
+  background-color: transparent;
+  color: #231F20;
+}
+.page-template-page-home .recent-projects .view-all-wrap a.button:hover, .page-template-page-home .recent-projects .view-all-wrap a.button:focus {
+  background-color: #231F20;
+  color: #F5CC20;
 }
 
 @media print, screen and (max-width: 56.24875em) {

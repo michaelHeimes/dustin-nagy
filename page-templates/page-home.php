@@ -216,6 +216,10 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 			);
 			$recent_projects_query = new WP_Query($args);
 			$recent_projects_projects = $recent_projects_query->have_posts() ? $recent_projects_query->posts : [];
+			
+			// temp hide
+			$recent_projects_title = null;
+			$recent_projects_projects = null;
 		}
 		?>
 		
@@ -273,7 +277,7 @@ $recent_projects_projects = $fields['recent_projects_projects'] ?? null;
 						<div class="view-all-wrap grid-container text-center">
 							<a class="button icon-btn grid-x inline-flex align-middle" href="/projects/" target="_self">
 								<span>View All Projects</span>
-								<svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="27.559" viewBox="0 0 27.559 27.559"><g data-name="Group 1" transform="rotate(-90 -1115.22 1792)"><circle cx="10" cy="10" r="10" transform="rotate(-58 2962.582 876.407)" fill="#f5cd20"></circle><path d="m667.59 2918-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6Z" fill="#231f20"></path></g></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="27.559" viewBox="0 0 27.559 27.559"><g data-name="Group 1" transform="rotate(-90 -1115.22 1792)"><circle cx="10" cy="10" r="10" transform="rotate(-58 2962.582 876.407)" fill="#231F20"></circle><path d="m667.59 2918-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6Z" fill="#f5cd20"></path></g></svg>
 							</a>
 						</div>
 					</div>

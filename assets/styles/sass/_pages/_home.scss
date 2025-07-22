@@ -205,6 +205,16 @@
 		.view-all-wrap {
 			padding-top: 0.57rem;
 			padding-bottom: rem-calc(60);
+			a.button {
+				border: 1px solid #231F20;
+				background-color: transparent;
+				color: #231F20;
+				&:hover,
+				&:focus {
+					background-color: $black;
+					color: $color-yellow;
+				}
+			}
 		}
 	}
 }
