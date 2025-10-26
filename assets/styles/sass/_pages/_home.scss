@@ -16,15 +16,30 @@
 	}
 	.intro {
 		padding-top: clamp(2.375rem, 1.517rem + 3.663vw, 4.813rem);
+		padding-bottom: clamp(2.375rem, 1.517rem + 3.663vw, 4.813rem);
 		.left {
 			@include breakpoint(xlarge) {
 				max-width: 45%;
+			}
+			h1	{
+				display: inline-flex;
+				flex-direction: column;
+				align-items: flex-start;
+				&:after {
+					content: "";
+					margin: 1rem 0 1.5rem;
+					display: block;
+					width: 100%;
+					height: 40px;
+					background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='442.744' height='39.962' viewBox='0 0 442.744 39.962'><g data-name='Group 387'><path d='M0 12.962h439v27H0Z' fill='%23f5ce1f'/><path d='M5.5 32.462 25.477 2.497' fill='none' stroke='%23251d21' stroke-width='9'/><path d='M28.474 32.462 48.451 2.497' fill='none' stroke='%23251d21' stroke-width='9'/><path d='M51.447 32.462 71.424 2.497' fill='none' stroke='%23251d21' stroke-width='9'/><path d='M74.421 32.462 94.398 2.497' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m97.394 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m120.368 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m143.341 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m166.315 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m189.288 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m212.262 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m235.235 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m258.208 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m281.182 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m304.156 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m327.129 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='M350.103 32.462 370.08 2.497' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m373.076 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='m396.05 32.462 19.977-29.965' fill='none' stroke='%23251d21' stroke-width='9'/><path d='M419.023 32.462 439 2.497' fill='none' stroke='%23251d21' stroke-width='9'/></g></svg>") no-repeat left/contain;
+				}
 			}
 		}
 		.global-ctas {
 			position: relative;
 			z-index: 2;
-			padding-top: clamp(1.688rem, 0.917rem + 3.286vw, 3.875rem);
+			// padding-top: clamp(1.688rem, 0.917rem + 3.286vw, 3.875rem);
+			padding-top: 2rem;
 		}
 		.img-wrap {
 			&.hide-for-tablet {

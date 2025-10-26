@@ -11,4 +11,4 @@ get_header();
 
 get_template_part('template-parts/content', 'archives');
 
- get_footer();
+get_footer();

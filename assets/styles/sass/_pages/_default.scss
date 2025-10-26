@@ -93,7 +93,19 @@ body.single {
 		.button-group {
 			line-height: 1.8;
 			margin-top: 1rem;
-			margin-bottom: 2.38em;
+			margin-bottom: 1.38em;
+		}
+		.button-group {
+			padding-top: 2.8rem;
+		}
+		.btns-group {
+			column-gap: 18px;
+		}
+		ul:not(.tabs):not(.accordion),
+		ol,
+		p {
+			font-size: rem-calc(18);
+			line-height: 1.888;
 		}
 		.button-group.block {
 			.cell {
@@ -196,10 +208,6 @@ body.single {
 				margin-top: 0;	
 			}
 		}
-		.button-group  {
-			padding-top: 2.6rem;
-			padding-bottom: 2.1rem;
-		}
 		.content-wrap {
 			> *:first-child {
 				margin-top: rem-calc(10);
@@ -218,24 +226,33 @@ body.single {
 		ul,
 		ol {
 			&:not(.tabs) {
+				margin-top: 2rem;
 				margin-bottom: 2.5rem;
 				@include breakpoint(tablet) {
 					margin-bottom: 3rem;
 				}
 			}
 			&:not(.tabs):not(.accordion) {
+				margin-top: 2rem;
 				padding-left: 1.65rem;
 			}
 			li:not(.accordion-item):not(.tabs-title) {
 				padding-left: 0.8rem;
-				margin-bottom: 0;
+				margin-bottom: 0.95em;
 			}
 		}
 		ul:not(.tabs):not(.accordion) {
+			list-style: none;
+			padding-left: .7rem;
 			li {
-				&::marker {
-					font-size: 28px;
-					color: $black;
+				position: relative;
+				padding-left: 29px !important;
+				&:before {
+					position: absolute;
+					top: -20px;
+					left: 0;
+					content: '•';
+					font-size: 40px;
 				}
 			}
 		}

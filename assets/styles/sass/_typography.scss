@@ -23,6 +23,7 @@ h2,
 
 h3,
 .h3 {
+	font-size: clamp(1.575rem, 1.337rem + 1.014vw, 2.25rem);
 	line-height: 1.33333;
 }
 

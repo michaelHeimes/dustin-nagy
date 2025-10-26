@@ -132,7 +132,6 @@
             if (window.innerWidth <= 899) return;
         
             const toggles = document.querySelectorAll('.menu-toggle');
-            console.log(toggles);
             toggles.forEach(toggle => {
                 if (toggle.getAttribute('aria-expanded') === 'true') {
                 toggle.click();
@@ -337,7 +336,6 @@
                 if (minHeight > 856) {
                     minHeight = 856;
                 }
-                console.log(headerHeight);
                 // Set the min-height of .style-hero-slider
                 heroBanner.style.minHeight = minHeight + 'px';
             }
